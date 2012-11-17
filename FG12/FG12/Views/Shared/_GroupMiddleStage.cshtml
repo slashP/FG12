@@ -1,0 +1,33 @@
+﻿@using FG12.Models
+@model IEnumerable<Team>
+@{
+    var firstTeam = Model.FirstOrDefault() ?? new Team{Group = new Group{Name = ""}};
+    var groupName = firstTeam.GroupMiddleStage.Name;
+    var counter = 1;
+}
+<div class="groupTable groupTable@(groupName)">
+    <table>
+        <tr>
+            <th style="width: 30px;">@groupName</th>
+            <th style="width: 130px;">Lag</th>
+            <th>#</th>
+            <th>+</th>
+            <th>-</th>
+            <th>+/-</th>
+            <th>P</th>
+        </tr>
+        
+        @foreach (var team in Model)
+        {
+            <tr>
+                <td>@(counter++)</td>
+                <td>@team.Name</td>
+                <td>@team.PlayedMatchesMiddleStage.Count</td>
+                <td>@team.GoalsScoredMiddleStage</td>
+                <td>@team.GoalsConcededMiddleStage</td>
+                <td>@team.GoalDifferenceMiddleStage</td>
+                <td>@team.PointsMiddleStage</td>
+            </tr>
+        }
+    </table>
+</div>
