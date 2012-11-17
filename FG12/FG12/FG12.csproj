@@ -165,6 +165,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KnockoutMatchController.cs" />
     <Compile Include="Controllers\MatchController.cs" />
     <Compile Include="Controllers\MatchMiddleStageController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
@@ -174,6 +175,8 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\IMatch.cs" />
+    <Compile Include="Models\MatchListViewModel.cs" />
     <Compile Include="Models\MatchMiddleStage.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\KnockoutMatch.cs" />
@@ -268,6 +271,12 @@
     <Content Include="Views\MatchMiddleStage\Edit.cshtml" />
     <Content Include="Views\MatchMiddleStage\Delete.cshtml" />
     <Content Include="Views\Shared\_GroupMiddleStage.cshtml" />
+    <Content Include="Views\Shared\_Matchlists.cshtml" />
+    <Content Include="Views\KnockoutMatch\Index.cshtml" />
+    <Content Include="Views\KnockoutMatch\Details.cshtml" />
+    <Content Include="Views\KnockoutMatch\Create.cshtml" />
+    <Content Include="Views\KnockoutMatch\Edit.cshtml" />
+    <Content Include="Views\KnockoutMatch\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

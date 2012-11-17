@@ -9,6 +9,7 @@ using FG12.Models;
 
 namespace FG12.Controllers
 {
+    [Authorize]
     public class TeamController : Controller
     {
         private DataContext db = new DataContext();

@@ -29,6 +29,8 @@ namespace FG12.Models
         public virtual ICollection<KnockoutMatch> KnockoutHomeMatches { get; set; }
         public virtual ICollection<KnockoutMatch> KnockoutAwayMatches { get; set; }
 
+        public int? AdditionalPointsFromGroupStage { get; set; }
+
         [NotMapped]
         [ScaffoldColumn(false)]
         public Collection<Match> Matches
@@ -233,7 +235,7 @@ namespace FG12.Models
                             sum += 3;
                     }
                 }
-                return sum;
+                return sum + AdditionalPointsFromGroupStage ?? 0;
             }
             set { Debug.WriteLine("setter called  " + value); }
         }

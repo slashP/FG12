@@ -1,25 +1,22 @@
-﻿@using FG12.Models
+﻿@model MatchListViewModel
+@using FG12.Models
 @{
     ViewBag.Title = "Middle stage";
 }
-@section featured {
-    <section class="featured">
-        <div class="content-wrapper">
-            <hgroup class="title">
-            </hgroup>
-            <p>
-                @Html.ActionLink("Registrer resultat mellomspill", "Create", "MatchMiddleStage")
-            </p>
-        </div>
-    </section>
-}
-<div class="page-header span6" style="">
-            <h2>Grupper</h2>
-        </div>
 
-        @foreach (var group in (List<IEnumerable<Team>>)ViewBag.Groups)
-        {
-            <div class="span3" style="margin: 2px;">
-                @Html.Partial("_GroupMiddleStage", group)
-            </div>
-        }
+@if (!(bool)ViewBag.IsActivated && Request.IsAuthenticated)
+{
+    @Html.ActionLink("Generer mellomspillgrupper", "GenerateMiddleMatchGroups", "MatchMiddleStage")
+}
+
+<h3>Mellomspill</h3>
+
+<div style="display: inline-block; width: 800px;">
+    @foreach (var group in (List<IEnumerable<Team>>)ViewBag.Groups) {
+        <div class="span3" style="margin: 2px;">
+            @Html.Partial("_GroupMiddleStage", group)
+        </div>
+    }
+</div>
+
+@Html.Partial("_Matchlists", Model)

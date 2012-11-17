@@ -9,6 +9,7 @@ using FG12.Models;
 
 namespace FG12.Controllers
 {
+    [Authorize]
     public class MatchController : Controller
     {
         private DataContext db = new DataContext();
@@ -81,7 +82,7 @@ namespace FG12.Controllers
 
         //
         // GET: /Match/Edit/5
-
+        [AllowAnonymous]
         public ActionResult Edit(int id = 0)
         {
             Match match = db.Matches.Find(id);
@@ -98,13 +99,14 @@ namespace FG12.Controllers
         // POST: /Match/Edit/5
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult Edit(Match match)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(match).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             ViewBag.HomeTeamId = new SelectList(db.Teams, "Id", "Name", match.HomeTeamId);
             ViewBag.AwayTeamId = new SelectList(db.Teams, "Id", "Name", match.AwayTeamId);

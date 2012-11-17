@@ -13,22 +13,9 @@
         <legend>MatchMiddleStage</legend>
 
         @Html.HiddenFor(model => model.Id)
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.HomeTeamId, "HomeTeam")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("HomeTeamId", String.Empty)
-            @Html.ValidationMessageFor(model => model.HomeTeamId)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.AwayTeamId, "AwayTeam")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("AwayTeamId", String.Empty)
-            @Html.ValidationMessageFor(model => model.AwayTeamId)
-        </div>
+        
+        @Html.HiddenFor(m => m.HomeTeamId)
+        @Html.HiddenFor(m => m.AwayTeamId)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.HomeTeamGoals)

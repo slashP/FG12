@@ -1,0 +1,94 @@
+﻿@using FG12.Models
+@model FG12.Models.MatchListViewModel
+
+<h2>Kommende kamper</h2>
+<table>
+    <tr>
+        <th>
+        </th>
+        <th>
+        </th>
+        <th>
+        </th>
+        <th>
+        </th>
+        <th></th>
+    </tr>
+    
+    
+    @foreach (var item in Model.ComingMatches) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeTeamName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AwayTeamName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeTeamGoals)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AwayTeamGoals)
+            </td>
+            <td>
+                @if(item.HomeTeamGoals == null || item.AwayTeamGoals == null)
+                {
+                    if(Model.Mode == Mode.Group) {
+                        @Html.ActionLink("Registrer resultat", "Edit", "Match", new { id=item.Id }, null)                    
+                    } else if(Model.Mode == Mode.MiddleStage) {
+                        @Html.ActionLink("Registrer resultat", "Edit", "MatchMiddleStage", new { id=item.Id }, null)                                        
+                    } else if(Model.Mode == Mode.Knockout) {
+                        @Html.ActionLink("Registrer resultat", "Edit", "KnockoutMatch", new { id=item.Id }, null)                                        
+                    }
+                }
+            </td>
+        </tr>
+    }
+
+</table>
+
+<h2>Alle kamper</h2>
+<table>
+    <tr>
+        <th>
+        </th>
+        <th>
+        </th>
+        <th>
+        </th>
+        <th>
+        </th>
+        <th></th>
+    </tr>
+    
+    
+    @foreach (var item in Model.AllMatches) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeTeamName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AwayTeamName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeTeamGoals)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AwayTeamGoals)
+            </td>
+            <td>
+                @if(item.HomeTeamGoals == null || item.AwayTeamGoals == null)
+                {
+                    if(Model.Mode == Mode.Group) {
+                        @Html.ActionLink("Registrer resultat", "Edit", "Match", new { id=item.Id }, null)                    
+                    } else if(Model.Mode == Mode.MiddleStage) {
+                        @Html.ActionLink("Registrer resultat", "Edit", "MatchMiddleStage", new { id=item.Id }, null)                                        
+                    } else if(Model.Mode == Mode.Knockout) {
+                        @Html.ActionLink("Registrer resultat", "Edit", "KnockoutMatch", new { id=item.Id }, null)                                        
+                    }
+                }
+            </td>
+        </tr>
+    }
+
+</table>

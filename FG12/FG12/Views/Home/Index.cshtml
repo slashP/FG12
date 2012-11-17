@@ -1,21 +1,13 @@
-﻿@using FG12.Models
+﻿@model MatchListViewModel
+@using FG12.Models
 @{
     ViewBag.Title = "Home Page";
 }
-@section featured {
-    <section class="featured">
-        <div class="content-wrapper">
-            <hgroup class="title">
-            </hgroup>
-            <p>
-                @Html.ActionLink("Registrer resultat gruppespill", "Create", "Match")
-            </p>
-        </div>
-    </section>
-}
-    <div style="display: inline-block; width: 800px;">
-        @foreach (var group in (List<IEnumerable<Team>>) ViewBag.Groups) {
-                @Html.Partial("_Group", group)
-        }
-    </div>
+<h3>Gruppespill</h3>
+<div style="display: inline-block; width: 800px;">
+    @foreach (var group in (List<IEnumerable<Team>>) ViewBag.Groups) {
+        @Html.Partial("_Group", group)
+    }
+</div>
 
+@Html.Partial("_Matchlists", Model)

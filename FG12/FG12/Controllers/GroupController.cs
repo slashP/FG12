@@ -5,6 +5,7 @@ using FG12.Models;
 
 namespace FG12.Controllers
 {
+    [Authorize]
     public class GroupController : Controller
     {
         private readonly DataContext db = new DataContext();

@@ -1,7 +1,7 @@
 ﻿@using FG12.Models
 @model IEnumerable<Team>
 @{
-    var firstTeam = Model.FirstOrDefault() ?? new Team{Group = new Group{Name = ""}};
+    var firstTeam = Model.FirstOrDefault() ?? new Team { Group = new Group { Name = "" } };
     var groupName = firstTeam.GroupMiddleStage.Name;
     var counter = 1;
 }
@@ -14,6 +14,7 @@
             <th>+</th>
             <th>-</th>
             <th>+/-</th>
+            <th>Add</th>
             <th>P</th>
         </tr>
         
@@ -26,6 +27,7 @@
                 <td>@team.GoalsScoredMiddleStage</td>
                 <td>@team.GoalsConcededMiddleStage</td>
                 <td>@team.GoalDifferenceMiddleStage</td>
+                <td>@team.AdditionalPointsFromGroupStage</td>
                 <td>@team.PointsMiddleStage</td>
             </tr>
         }

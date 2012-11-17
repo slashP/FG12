@@ -1,4 +1,4 @@
-﻿@model FG12.Models.Match
+﻿@model FG12.Models.KnockoutMatch
 
 @{
     ViewBag.Title = "Edit";
@@ -11,10 +11,13 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Match</legend>
+        <legend>KnockoutMatch</legend>
 
         @Html.HiddenFor(model => model.Id)
 
+        
+
+            @Html.HiddenFor(m => m.Type)
             @Html.HiddenFor(m => m.HomeTeamId)
             @Html.HiddenFor(m => m.AwayTeamId)
 
@@ -39,6 +42,7 @@
         </p>
     </fieldset>
 }
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
