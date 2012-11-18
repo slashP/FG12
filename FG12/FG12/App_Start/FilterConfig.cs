@@ -1,7 +1,6 @@
-﻿using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
-namespace FG12
+namespace FG12.App_Start
 {
     public class FilterConfig
     {

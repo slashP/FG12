@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Web.WebPages.OAuth;
-using FG12.Models;
-
-namespace FG12
+﻿namespace FG12.App_Start
 {
     public static class AuthConfig
     {

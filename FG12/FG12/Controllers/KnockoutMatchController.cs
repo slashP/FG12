@@ -5,7 +5,6 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using EuroApi.Models;
 using FG12.Models;
 
 namespace FG12.Controllers
@@ -18,7 +17,7 @@ namespace FG12.Controllers
         public ActionResult GenerateKnockoutMatchesQuarterFinals()
         {
             var teams = _db.Teams.Include(t => t.HomeMatchesMiddleStage).Include(t => t.AwayMatchesMiddleStage).Include(t => t.GroupMiddleStage).ToList();
-            var teamsByGroup = teams.Select(x => x.GroupMiddleStage.Name).Distinct().Select(id => teams.Where(x => x.GroupMiddleStage.Name == id)).ToList();
+            var teamsByGroup = teams.Select(x => x.GroupMiddleStage.Name).Distinct().OrderBy(x => x).Select(id => teams.Where(x => x.GroupMiddleStage.Name == id)).ToList();
             var orderedTeams = new List<List<Team>>();
             teamsByGroup.ForEach(t => orderedTeams.Add(Standing.SortTeamsMiddleStage(t.ToList())));
             if(orderedTeams.Count != 4 || orderedTeams.Sum(x => x.Count) != 16) {

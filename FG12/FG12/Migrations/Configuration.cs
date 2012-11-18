@@ -67,7 +67,7 @@ namespace FG12.Migrations
                 new Match { Id = 15, HomeTeamId = 14, AwayTeamId = 15 },
                 new Match { Id = 16, HomeTeamId = 16, AwayTeamId = 13 },
                 
-                // Round 2
+                // Round 3
                 new Match { Id = 17, HomeTeamId = 1, AwayTeamId = 3 },
                 new Match { Id = 18, HomeTeamId = 4, AwayTeamId = 2 },
                 new Match { Id = 19, HomeTeamId = 5, AwayTeamId = 7 },

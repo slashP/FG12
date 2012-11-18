@@ -13,9 +13,7 @@
 
 <div style="display: inline-block; width: 800px;">
     @foreach (var group in (List<IEnumerable<Team>>)ViewBag.Groups) {
-        <div class="span3" style="margin: 2px;">
             @Html.Partial("_GroupMiddleStage", group)
-        </div>
     }
 </div>
 

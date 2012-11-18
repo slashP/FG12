@@ -1,7 +1,6 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
-namespace FG12
+namespace FG12.App_Start
 {
     public class BundleConfig
     {

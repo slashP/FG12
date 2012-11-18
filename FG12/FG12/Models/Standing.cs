@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
-using FG12.Models;
 
-namespace EuroApi.Models
+namespace FG12.Models
 {
     public class Standing
     {
@@ -17,6 +16,5 @@ namespace EuroApi.Models
             var sorted = teams.OrderByDescending(x => x.PointsMiddleStage).ThenByDescending(x => x.GoalDifferenceMiddleStage).ThenByDescending(x => x.GoalsScoredMiddleStage).ThenBy(x => x.Name).ToList();
             return sorted;
         }
-
     }
 }

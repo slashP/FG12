@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using EuroApi.Models;
 using FG12.Models;
 using System.Data.Entity;
 
@@ -27,7 +26,7 @@ namespace FG12.Controllers
                     PlayedMatches =
                         groupMatches.Where(x => x.HomeTeamGoals != null || x.AwayTeamGoals != null).OrderByDescending(
                             x => x.Id).ToList(),
-                    AllMatches = groupMatches.OrderByDescending(x => x.Id).ToList(),
+                    AllMatches = groupMatches.ToList(),
                     Mode = Mode.Group
                 };
             return View(matchListViewModel);
@@ -35,8 +34,8 @@ namespace FG12.Controllers
 
         public ActionResult Mellomspill()
         {
-            var teams = _db.Teams.Include(t => t.GroupMiddleStage).Where(x => x.GroupMiddleStageId != null).ToList();
-            var teamsByGroup = teams.Select(x => x.GroupMiddleStage.Name).Distinct().Select(id => teams.Where(x => x.GroupMiddleStage.Name == id).ToList()).ToList();
+            var teams = _db.Teams.Include(t => t.GroupMiddleStage).Where(x => x.GroupMiddleStageId != null).OrderBy(x => x.GroupId).ToList();
+            var teamsByGroup = teams.Select(x => x.GroupMiddleStage.Name).Distinct().OrderBy(x => x).Select(id => teams.Where(x => x.GroupMiddleStage.Name == id).ToList()).ToList();
             var orderedTeams = new List<IEnumerable<Team>>();
             teamsByGroup.ForEach(t => orderedTeams.Add(Standing.SortTeamsMiddleStage(t)));
             ViewBag.Groups = orderedTeams;
@@ -49,7 +48,7 @@ namespace FG12.Controllers
                     PlayedMatches =
                         matchesMiddleStage.Where(x => x.HomeTeamGoals != null || x.AwayTeamGoals != null).
                             OrderByDescending(x => x.Id).ToList(),
-                    AllMatches = matchesMiddleStage.OrderByDescending(x => x.Id).ToList(),
+                    AllMatches = matchesMiddleStage.ToList(),
                     Mode = Mode.MiddleStage
                 };
             ViewBag.IsActivated = _db.MatchesMiddleStage.Any();

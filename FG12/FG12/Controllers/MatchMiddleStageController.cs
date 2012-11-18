@@ -5,7 +5,6 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using EuroApi.Models;
 using FG12.Models;
 
 namespace FG12.Controllers
@@ -147,7 +146,7 @@ namespace FG12.Controllers
                 // all teams three matches.
                 return null;
             }
-            var teamsByGroup = teams.Select(x => x.Group.Name).Distinct().Select(id => teams.Where(x => x.Group.Name == id).ToList()).ToList();
+            var teamsByGroup = teams.Select(x => x.Group.Name).Distinct().OrderBy(x => x).Select(id => teams.Where(x => x.Group.Name == id).ToList()).ToList();
             var orderedTeams = new List<List<Team>>();
             teamsByGroup.ForEach(t => orderedTeams.Add(Standing.SortTeams(t.ToList())));
             // Group M1
@@ -202,37 +201,37 @@ namespace FG12.Controllers
             const int point2 = 2;
             const int point3 = 1;
             const int point4 = 0;
-            _db.Teams.Find(teamA1).GroupMiddleStageId = 1;
+            _db.Teams.Find(teamA1).GroupMiddleStageId = 5;
             _db.Teams.Find(teamA1).AdditionalPointsFromGroupStage = point1;
-            _db.Teams.Find(teamB2).GroupMiddleStageId = 1;
+            _db.Teams.Find(teamB2).GroupMiddleStageId = 5;
             _db.Teams.Find(teamB2).AdditionalPointsFromGroupStage = point2;
-            _db.Teams.Find(teamC3).GroupMiddleStageId = 1;
+            _db.Teams.Find(teamC3).GroupMiddleStageId = 5;
             _db.Teams.Find(teamC3).AdditionalPointsFromGroupStage = point3;
-            _db.Teams.Find(teamD4).GroupMiddleStageId = 1;
+            _db.Teams.Find(teamD4).GroupMiddleStageId = 5;
             _db.Teams.Find(teamD4).AdditionalPointsFromGroupStage = point4;
-            _db.Teams.Find(teamB1).GroupMiddleStageId = 2;
+            _db.Teams.Find(teamB1).GroupMiddleStageId = 6;
             _db.Teams.Find(teamB1).AdditionalPointsFromGroupStage = point1;
-            _db.Teams.Find(teamC2).GroupMiddleStageId = 2;
+            _db.Teams.Find(teamC2).GroupMiddleStageId = 6;
             _db.Teams.Find(teamC2).AdditionalPointsFromGroupStage = point2;
-            _db.Teams.Find(teamD3).GroupMiddleStageId = 2;
+            _db.Teams.Find(teamD3).GroupMiddleStageId = 6;
             _db.Teams.Find(teamD3).AdditionalPointsFromGroupStage = point3;
-            _db.Teams.Find(teamA4).GroupMiddleStageId = 2;
+            _db.Teams.Find(teamA4).GroupMiddleStageId = 6;
             _db.Teams.Find(teamA4).AdditionalPointsFromGroupStage = point4;
-            _db.Teams.Find(teamC1).GroupMiddleStageId = 3;
+            _db.Teams.Find(teamC1).GroupMiddleStageId = 7;
             _db.Teams.Find(teamC1).AdditionalPointsFromGroupStage = point1;
-            _db.Teams.Find(teamD2).GroupMiddleStageId = 3;
+            _db.Teams.Find(teamD2).GroupMiddleStageId = 7;
             _db.Teams.Find(teamD2).AdditionalPointsFromGroupStage = point2;
-            _db.Teams.Find(teamA3).GroupMiddleStageId = 3;
+            _db.Teams.Find(teamA3).GroupMiddleStageId = 7;
             _db.Teams.Find(teamA3).AdditionalPointsFromGroupStage = point3;
-            _db.Teams.Find(teamB4).GroupMiddleStageId = 3;
+            _db.Teams.Find(teamB4).GroupMiddleStageId = 7;
             _db.Teams.Find(teamB4).AdditionalPointsFromGroupStage = point4;
-            _db.Teams.Find(teamD1).GroupMiddleStageId = 4;
+            _db.Teams.Find(teamD1).GroupMiddleStageId = 8;
             _db.Teams.Find(teamD1).AdditionalPointsFromGroupStage = point1;
-            _db.Teams.Find(teamA2).GroupMiddleStageId = 4;
+            _db.Teams.Find(teamA2).GroupMiddleStageId = 8;
             _db.Teams.Find(teamA2).AdditionalPointsFromGroupStage = point2;
-            _db.Teams.Find(teamB3).GroupMiddleStageId = 4;
+            _db.Teams.Find(teamB3).GroupMiddleStageId = 8;
             _db.Teams.Find(teamB3).AdditionalPointsFromGroupStage = point3;
-            _db.Teams.Find(teamC4).GroupMiddleStageId = 4;
+            _db.Teams.Find(teamC4).GroupMiddleStageId = 8;
             _db.Teams.Find(teamC4).AdditionalPointsFromGroupStage = point4;
             _db.SaveChanges();
             return RedirectToAction("Mellomspill", "Home");
