@@ -278,6 +278,7 @@
     <Content Include="Views\KnockoutMatch\Create.cshtml" />
     <Content Include="Views\KnockoutMatch\Edit.cshtml" />
     <Content Include="Views\KnockoutMatch\Delete.cshtml" />
+    <Content Include="Views\Home\Index.Mobile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

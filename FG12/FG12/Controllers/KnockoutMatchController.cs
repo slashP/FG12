@@ -48,7 +48,7 @@ namespace FG12.Controllers
                     Type = KnockoutMatch.QUARTERFINAL
                 });
             _db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Finaler", "Home");
         }
 
         public ActionResult GenerateKnockoutMatchesSemiFinals()
@@ -70,7 +70,7 @@ namespace FG12.Controllers
                 Type = KnockoutMatch.SEMIFINAL
             });
             _db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Finaler", "Home");
         }
 
         public ActionResult GenerateKnockoutMatchesFinal()
@@ -86,7 +86,7 @@ namespace FG12.Controllers
                     Type = KnockoutMatch.FINAL
                 });
             _db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Finaler", "Home");
         }
 
         public ActionResult Index()

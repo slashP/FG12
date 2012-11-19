@@ -1,0 +1,14 @@
+﻿@model MatchListViewModel
+@using FG12.Models
+@{
+    ViewBag.Title = "Home Page";
+}
+<h3>Gruppespill</h3>
+<div style="display: inline-block; width: 800px;">
+    @foreach (var group in (List<IEnumerable<Team>>) ViewBag.Groups) {
+        @Html.Partial("_Group", group)
+    }
+    <br />
+</div>
+
+@Html.Partial("_Matchlists", Model)
