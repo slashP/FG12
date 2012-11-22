@@ -115,19 +115,6 @@ namespace FG12.Controllers
         public ActionResult Delete(int id = 0)
         {
             MatchMiddleStage matchmiddlestage = _db.MatchesMiddleStage.Find(id);
-            if (matchmiddlestage == null) {
-                return HttpNotFound();
-            }
-            return View(matchmiddlestage);
-        }
-
-        //
-        // POST: /MatchMiddleStage/Delete/5
-
-        [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            MatchMiddleStage matchmiddlestage = _db.MatchesMiddleStage.Find(id);
             _db.MatchesMiddleStage.Remove(matchmiddlestage);
             _db.SaveChanges();
             return RedirectToAction("Index");

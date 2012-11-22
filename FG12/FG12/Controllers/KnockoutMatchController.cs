@@ -175,20 +175,6 @@ namespace FG12.Controllers
         public ActionResult Delete(int id = 0)
         {
             KnockoutMatch knockoutmatch = _db.KnockoutMatches.Find(id);
-            if (knockoutmatch == null)
-            {
-                return HttpNotFound();
-            }
-            return View(knockoutmatch);
-        }
-
-        //
-        // POST: /KnockoutMatch/Delete/5
-
-        [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            KnockoutMatch knockoutmatch = _db.KnockoutMatches.Find(id);
             _db.KnockoutMatches.Remove(knockoutmatch);
             _db.SaveChanges();
             return RedirectToAction("Index");

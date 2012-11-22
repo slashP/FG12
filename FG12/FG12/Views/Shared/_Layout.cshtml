@@ -21,9 +21,14 @@
                     </section>
                     <nav>
                         <ul id="menu">
+                            @if (Request.IsAuthenticated) {
+                                <li>@Html.ActionLink("Admin mellomspill", "Index", "MatchMiddleStage")</li>
+                                <li>@Html.ActionLink("Admin finaler", "Index", "KnockoutMatch")</li>                                
+                            }
                             <li>@Html.ActionLink("Gruppespill", "Index", "Home")</li>
                             <li>@Html.ActionLink("Mellomspill", "Mellomspill", "Home")</li>
                             <li>@Html.ActionLink("Finaler", "Finaler", "Home")</li>
+                            
                         </ul>
                     </nav>
                 </div>
