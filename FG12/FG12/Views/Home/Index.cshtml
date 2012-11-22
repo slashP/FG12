@@ -4,7 +4,7 @@
     ViewBag.Title = "Gruppespill";
 }
 <h3>Gruppespill</h3>
-<div style="display: inline-block; width: 810px;">
+<div style="display: inline-block; width: 800px;">
     @foreach (var group in (List<IEnumerable<Team>>) ViewBag.Groups) {
         @Html.Partial("_Group", group)
     }
