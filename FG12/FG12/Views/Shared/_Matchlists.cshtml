@@ -88,6 +88,7 @@
                     } else if(Model.Mode == Mode.Knockout) {
                         @Html.ActionLink("Registrer resultat", "Edit", "KnockoutMatch", new { id=item.Id }, null)                                        
                     }
+                    @Html.ActionLink("Skader", "Skader", "Home", new { id=item.Id, hometeam = item.HomeTeamName, awayteam = item.AwayTeamName }, null)
                 }
             </td>
         </tr>
