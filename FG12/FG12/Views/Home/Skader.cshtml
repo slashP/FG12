@@ -1,0 +1,57 @@
+﻿@model FG12.ViewModels.SkaderViewModel
+@{
+    ViewBag.Title = "Skader";
+}
+    	<style type="text/css">
+    		.team {
+    			padding: 10px;
+    			background-color: grey;
+    			color: white;
+    			font-weight: bold;
+    		}
+
+		.team.fixed {
+			background-color:green;
+		}
+
+        input[type="button"]:disabled {
+            color: lightgray;
+        }
+
+    		.team.broken {
+    			background-color: red;    			
+    		}
+
+    		label {
+    			display: inline-block;
+    			width: 150px;
+    		}
+    		
+    	</style>
+		
+        <table width="100%" cellspacing="0">
+        	<tr>
+        		<td>@Model.Hometeam:</td>
+        		<td width="100%">
+        			<div class="team" id="home">-</div>
+    			</td>
+    		</tr>
+    		<tr>
+        		<td>@Model.Awayteam:</td>
+    			<td width="100%">
+    				<div class="team" id="away">-</div>
+    			</td>
+    		</tr>
+        </table>
+    <br/>
+    <br/>
+        <label>Til draktnummer:</label> <input id="high-player" type="text" size="5" value="30" /> <br/>
+        <label>Sannsynlighet:</label> <input id="probability" type="text" size="5" value="33" />% <br/>
+        <br/>
+        <input class="button" type="button" id="break" value="Se skader" />
+<input class="button" type="button" id="reset" value="Nullstill" />
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/skader")
+}

@@ -1,5 +1,6 @@
 ﻿@using FG12.Models
-@model FG12.Models.MatchListViewModel
+@using FG12.ViewModels
+@model FG12.ViewModels.MatchListViewModel
 
 <h2>Kommende kamper</h2>
 <table>
@@ -34,12 +35,13 @@
                 @if(item.HomeTeamGoals == null || item.AwayTeamGoals == null)
                 {
                     if(Model.Mode == Mode.Group) {
-                        @Html.ActionLink("Registrer resultat", "Edit", "Match", new { id=item.Id }, null)                    
+                        @Html.ActionLink("Registrer resultat", "Edit", "Match", new { id=item.Id }, null)
                     } else if(Model.Mode == Mode.MiddleStage) {
                         @Html.ActionLink("Registrer resultat", "Edit", "MatchMiddleStage", new { id=item.Id }, null)                                        
                     } else if(Model.Mode == Mode.Knockout) {
                         @Html.ActionLink("Registrer resultat", "Edit", "KnockoutMatch", new { id=item.Id }, null)                                        
                     }
+                    @Html.ActionLink("Skader", "Skader", "Home", new { id=item.Id, hometeam = item.HomeTeamName, awayteam = item.AwayTeamName }, null)
                 }
             </td>
         </tr>

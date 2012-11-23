@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using FG12.Models;
 using System.Data.Entity;
+using FG12.ViewModels;
 
 namespace FG12.Controllers
 {
@@ -73,6 +74,11 @@ namespace FG12.Controllers
                     Mode = Mode.Knockout
                 };
             return View(matchListViewModel);
+        }
+
+        public ActionResult Skader(int id, string hometeam, string awayteam)
+        {
+            return View(new SkaderViewModel(hometeam, awayteam));
         }
     }
 }
