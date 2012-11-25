@@ -44,12 +44,16 @@
     		</tr>
         </table>
     <br/>
-    <br/>
-        <label>Til draktnummer:</label> <input id="high-player" type="text" size="5" value="30" /> <br/>
-        <label>Sannsynlighet:</label> <input id="probability" type="text" size="5" value="33" />% <br/>
-        <br/>
-        <input class="button" type="button" id="break" value="Se skader" />
+<br/>
+<input class="button" type="button" id="break" value="Se skader" />
 <input class="button" type="button" id="reset" value="Nullstill" />
+<br/>
+<br/>
+<br/>
+        <label>Til draktnummer:</label> <input id="high-player" type="text" size="5" value="20" readonly="readonly" style="background: lightgrey;" /> <br/>
+        <label>Sannsynlighet:</label> <input id="probability" type="text" size="5" value="40" readonly="readonly" style="background: lightgrey;" />% <br/>
+
+        
 
 @section Scripts {
     @Scripts.Render("~/bundles/jquery")

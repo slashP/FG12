@@ -2,7 +2,7 @@
     if (Math.random() * 100 <= probability) {
         $element.addClass("broken");
 
-        var player = Math.round((Math.random() * highPlayer) + 1)
+        var player = Math.floor((Math.random() * highPlayer + 1));
 
         $element.text("Spiller nummer " + player + " er skadet!");
     }
