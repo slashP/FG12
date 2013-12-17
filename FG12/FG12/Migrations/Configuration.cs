@@ -28,22 +28,22 @@ namespace FG12.Migrations
             );
 
             context.Teams.AddOrUpdate(
-                new Team { Id = 1, Name = "Porto", GroupId = 1, GroupMiddleStageId = 5 },
-                new Team { Id = 2, Name = "Sevilla", GroupId = 1 },
-                new Team { Id = 3, Name = "Valencia", GroupId = 1 },
-                new Team { Id = 4, Name = "Arsenal", GroupId = 1, GroupMiddleStageId = 5 },
-                new Team { Id = 5, Name = "Sporting Lisboa", GroupId = 2 },
-                new Team { Id = 6, Name = "Tottenham", GroupId = 2 },
-                new Team { Id = 7, Name = "Zenit", GroupId = 2, GroupMiddleStageId = 5 },
-                new Team { Id = 8, Name = "Bayer Leverkusen", GroupId = 2, GroupMiddleStageId = 5 },
-                new Team { Id = 9, Name = "Roma", GroupId = 3 },
-                new Team { Id = 10, Name = "Atlético Madrid", GroupId = 3 },
-                new Team { Id = 11, Name = "Lyon", GroupId = 3 },
-                new Team { Id = 12, Name = "Lazio", GroupId = 3 },
-                new Team { Id = 13, Name = "Lille", GroupId = 4 },
-                new Team { Id = 14, Name = "Napoli", GroupId = 4 },
-                new Team { Id = 15, Name = "Liverpool", GroupId = 4 },
-                new Team { Id = 16, Name = "Milan", GroupId = 4 }
+                new Team { Id = 1, Name = "Nederland", GroupId = 1 },
+                new Team { Id = 2, Name = "Frankrike", GroupId = 1 },
+                new Team { Id = 3, Name = "Sverige", GroupId = 1 },
+                new Team { Id = 4, Name = "England", GroupId = 1 },
+                new Team { Id = 5, Name = "Belgia", GroupId = 2 },
+                new Team { Id = 6, Name = "Chile", GroupId = 2 },
+                new Team { Id = 7, Name = "Polen", GroupId = 2 },
+                new Team { Id = 8, Name = "Portugal", GroupId = 2 },
+                new Team { Id = 9, Name = "Italia", GroupId = 3 },
+                new Team { Id = 10, Name = "Uruguay", GroupId = 3 },
+                new Team { Id = 11, Name = "Colombia", GroupId = 3 },
+                new Team { Id = 12, Name = "Elfenbenskysten", GroupId = 3 },
+                new Team { Id = 13, Name = "Spania", GroupId = 4 },
+                new Team { Id = 14, Name = "Argentina", GroupId = 4 },
+                new Team { Id = 15, Name = "Brasil", GroupId = 4 },
+                new Team { Id = 16, Name = "Tyskland", GroupId = 4 }
             );
 
             context.Matches.AddOrUpdate(
